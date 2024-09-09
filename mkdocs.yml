@@ -96,6 +96,7 @@ nav:
       - workflows/run-workflows-on-qpus-QASM-simulator.md
       - workflows/run-workflows-on-qpus-qpu.md
       - workflows/recursive-qaoa.md
+      - workflows/fermionic-qaoa.md
   - QUBO Problems:
       - problems/what-is-a-qubo.md
       - Built-in QUBO:
