@@ -22,7 +22,7 @@ The initial state is set to a ground state of the mixer Hamiltonian satisfying t
 
 - Broad Applicability: The Hamiltonian design guideline benefits QAOA and extends to other algorithms like Grover adaptive search and quantum phase estimation, making it a versatile tool for solving constrained combinatorial optimization problems.
 
-This notebook describes the implementation of FQAOA, illustrates its application through an example portfolio optimisation problem, and provides insight into FQAOA's superior performance in constrained combinatorial optimization tasks.
+This notebook describes the implementation of FQAOA, illustrates its application through an example portfolio optimization problem, and provides insight into FQAOA's superior performance in constrained combinatorial optimization tasks.
 
 ### Quadratic Constrained Binary Optimization Problems
 The constrained combinatorial optimization problem for a quadratic binary cost function $C_{\vec x}$ can be written in the following form：
@@ -79,8 +79,8 @@ import matplotlib.pyplot as plt
 
 ## Portfolio Optimization
 
-In the following, the [portfolio optimization problem](https://en.wikipedia.org/wiki/Portfolio_optimization) is taken as a constrained quadratic optimisation problem.
-Start by creating an instance of the portfolio optimisation problem, using the `random_instance` method of the `PortfolioOptimisation`.
+In the following, the [portfolio optimization problem](https://en.wikipedia.org/wiki/Portfolio_optimization) is taken as a constrained quadratic optimization problem.
+Start by creating an instance of the portfolio optimization problem, using the `random_instance` method of the `PortfolioOptimization`.
 
 
 ```python
@@ -171,7 +171,7 @@ display(df)
 
 the probabilities of finding the best five optimal solutions by using QAOA and FQAOA
 
-| index | Bitstring, $\vec x$ | Cost, $C_{\vec x}$| QAOA     | FQAOA    |
+| Index | Bitstring, $\vec x$ | Cost, $C_{\vec x}$| QAOA     | FQAOA    |
 |-------|---------------------|-------------------|----------|----------|
 | 0     | 11100001            | -1.371650         | 0.005642 | 0.009979 |
 | 1     | 11101000            | -1.193696         | 0.006019 | 0.024488 |
