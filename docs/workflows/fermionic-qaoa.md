@@ -59,8 +59,6 @@ $$\qquad{\rm where \quad}C_p({\vec \gamma}, {\vec \beta}) = \langle\psi_p({\vec 
 
 The variational parameters $({\vec \gamma}^{\rm opt}, {\vec \beta}^{\rm opt})$ give the lowest cost value at QAOA level $p$.
 
-
-
 ```python
 %matplotlib notebook
 %matplotlib inline
@@ -85,9 +83,9 @@ Start by creating an instance of the portfolio optimization problem, using the `
 
 ```python
 # create a problem instance for portfolio optimization
-num_assets = 8 # number of decision variables
-budget = 4 # constraint on the sum of decision variables
-problem = PortfolioOptimization.random_instance(num_assets=num_assets, budget=budget, penalty = None).qubo
+num_assets = 4 # number of decision variables
+budget = 2 # constraint on the sum of decision variables
+problem = PortfolioOptimization.random_instance(num_assets=num_assets, budget=budget).qubo
 ```
 
 ##  Solving the problem
@@ -145,12 +143,10 @@ display(df)
 
 the optimized expectation values of the cost
 
-
 | Method | Optimized Cost $\langle C_{\vec x} \rangle$ |
-|--------|----------------|
-| QAOA   | 4.512233       |
-| FQAOA  | -0.482998      |
-
+|--------|-----------|
+| QAOA   | -0.014343 |
+| FQAOA  | -1.675643 |
 
 
 ```python
@@ -159,7 +155,7 @@ qaoa_lowest5_dict = qaoa.result.lowest_cost_bitstrings(5)
 fqaoa_lowest5_dict = fqaoa.result.lowest_cost_bitstrings(5)
 
 qaoa_dict = {
-    r'Bitstring, $\boldsymbol{x}$': qaoa_lowest5_dict['solutions_bitstrings'],
+    r'Bitstring, $\vec{x}$': qaoa_lowest5_dict['solutions_bitstrings'],
     r'Cost, $C_{\vec x}$': qaoa_lowest5_dict['bitstrings_energies'],
     labels[0]: qaoa_lowest5_dict['probabilities'],
     labels[1]: fqaoa_lowest5_dict['probabilities']
@@ -171,14 +167,13 @@ display(df)
 
 the probabilities of finding the best five optimal solutions by using QAOA and FQAOA
 
-| Index | Bitstring, $\vec x$ | Cost, $C_{\vec x}$| QAOA     | FQAOA    |
-|-------|---------------------|-------------------|----------|----------|
-| 0     | 11100001            | -1.371650         | 0.005642 | 0.009979 |
-| 1     | 11101000            | -1.193696         | 0.006019 | 0.024488 |
-| 2     | 10101001            | -1.080295         | 0.006139 | 0.192331 |
-| 3     | 10110001            | -1.079240         | 0.005780 | 0.044356 |
-| 4     | 11100100            | -0.949303         | 0.006036 | 0.020335 |
-
+| Index | Bitstring, $\vec{x}$ | Cost, $C_{\vec x}$ | QAOA    | FQAOA   |
+|-------|------------------|------------------------------|---------|---------|
+| 0     | 1010             | -1.797905                    | 0.144896| 0.904789|
+| 1     | 1100             | -0.720493                    | 0.124931| 0.015386|
+| 2     | 0110             | -0.602018                    | 0.122931| 0.033298|
+| 3     | 1001             | -0.471908                    | 0.120777| 0.031587|
+| 4     | 0011             | -0.362333                    | 0.119113| 0.012593|
 
 References
 ----------
